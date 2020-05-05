@@ -58,13 +58,16 @@ public class EventValidationService {
                   final @BindingName(Constant.SP) Map<String, Object> systemProperties,
                   final ExecutionContext context) throws InterruptedException, ServiceBusException {
     final Logger log = context.getLogger();
+    //TODO: get message
     log.info(String.format("Source: [%s]", properties.get(Constant.SOURCE)));
     log.info(String.format("Body: [%s]", input.getBodyAsString()));
-    final TopicClient client = this.getClient(Constant.ENTITY);
-    System.out.println(client.toString());
-
+    //TODO: get corresponding json schema by 'source' from Azure storage
+    //TODO: validate the message body by the json schema
     final Gson gson = this.component.gson();
     final Message message = gson.fromJson(input.getBodyAsString(), Message.class);
     log.info(String.format("id: [%s]", message.getEntity().getId()));
+    //TODO: send event to service bus
+    final TopicClient client = this.getClient(properties.get(Constant.SOURCE));
+    System.out.println(client.toString());
   }
 }

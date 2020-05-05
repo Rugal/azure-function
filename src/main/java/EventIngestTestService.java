@@ -42,7 +42,7 @@ public class EventIngestTestService {
     final String message = request.getBody().orElse(Constant.TEST);
     log.info(message);
     final EventData eventData = new EventData(message);
-    eventData.getProperties().put(Constant.SOURCE, "rugal");
+    eventData.getProperties().put(Constant.SOURCE, Constant.ENTITY);
     eventData.getProperties().put(Constant.OPERATION, "ADD");
     return eventData;
   }
