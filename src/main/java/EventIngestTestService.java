@@ -12,7 +12,11 @@ import com.microsoft.azure.functions.annotation.HttpTrigger;
 import module.Constant;
 
 /**
- * Azure Functions with EventHub output.
+ * Azure function for testing. Invoking this function with request body so we can test the
+ * {@code validator} function easily.<BR>
+ * This method will be removed once development is completed.
+ *
+ * @author Rugal Bernstein
  */
 public class EventIngestTestService {
 

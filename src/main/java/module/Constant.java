@@ -13,12 +13,12 @@ public interface Constant {
 
   String NEW = "new";
 
+  String ENTITY = "entity";
+
+  String ACCOUNT = "account";
+
   // service bus
   String SERVICE_BUS_KEY = "SERVICE_BUS_CONNECTION_STRING";
-
-  String SERVICE_BUS_VALUE = "Endpoint=sb://transithub-servicebus-ci.servicebus.windows.net/;"
-                             + "SharedAccessKeyName=RootManageSharedAccessKey;"
-                             + "SharedAccessKey=wAaffzUDb6efTbgBT2yhKv9njcsE1Dokr/uwMKv4QRs=;";
 
   // event hub
   String EVENT_HUB_NAME = "eventhub";
@@ -30,7 +30,7 @@ public interface Constant {
                 + "\"createDate\":\"Dec 10, 2019 2:33:10 PM\","
                 + "\"updatedBy\":\"Stephanie.Chen.v9m\","
                 + "\"updateDate\":\"Dec 10, 2019 2:33:10 PM\","
-                + "\"entity\":{\"id\":\"5defaca6440a310c1c6a3b1a\","
+                + "\"entity\":{\"id\":\"5defaca6440a310c1cxxxxx\","
                 + "\"code\":\"steph_code_5\","
                 + "\"versionId\":196008,"
                 + "\"clientId\":2,"

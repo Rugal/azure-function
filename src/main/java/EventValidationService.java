@@ -17,7 +17,9 @@ import module.Constant;
 import module.DaggerBundleComponent;
 
 /**
- * Azure Functions with EventHub Trigger.
+ * Azure Function that actually doing the validation for incoming message from EventHub.
+ *
+ * @author Rugal Bernstein
  */
 public class EventValidationService {
 
@@ -56,9 +58,9 @@ public class EventValidationService {
                   final @BindingName(Constant.SP) Map<String, Object> systemProperties,
                   final ExecutionContext context) throws InterruptedException, ServiceBusException {
     final Logger log = context.getLogger();
-    log.info(String.format("Source: [%s]", properties.get("source")));
-    log.info(String.format("Data: [%s]", input.getBodyAsString()));
-    final TopicClient client = this.getClient(Constant.NEW);
+    log.info(String.format("Source: [%s]", properties.get(Constant.SOURCE)));
+    log.info(String.format("Body: [%s]", input.getBodyAsString()));
+    final TopicClient client = this.getClient(Constant.ENTITY);
     System.out.println(client.toString());
 
     final Gson gson = this.component.gson();

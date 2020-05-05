@@ -26,7 +26,7 @@ public class EnvironmentModule {
   @Provides
   @Singleton
   public String provideServiceBusConnectionString() {
-    return this.getEnv(Constant.SERVICE_BUS_KEY, Constant.SERVICE_BUS_VALUE);
+    return this.getEnv(Constant.SERVICE_BUS_KEY, null);
   }
 
   @Provides
