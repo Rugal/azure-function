@@ -2,6 +2,12 @@
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
+# https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/java-function?view=azure-devops
+
+variables: 
+  ## Add this under variables section in the pipeline
+  azureSubscription: DCO-DataEngine-N
+  appName: a206566-function
 
 trigger:
   branches:
@@ -21,10 +27,23 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     goals: 'package'
-
+    
 - task: CopyFiles@2
   displayName: Copy Files
   inputs:
-    SourceFolder: $(system.defaultworkingdirectory)/target/azure-functions
+    SourceFolder: $(System.DefaultWorkingDirectory)/target/azure-functions
     Contents: '**'
-    TargetFolder: $(build.artifactstagingdirectory)
+    TargetFolder: $(Build.ArtifactStagingDirectory)   
+
+- task: PublishBuildArtifacts@1
+  displayName: Publish Artifact
+  inputs:
+    pathToPublish: $(Build.ArtifactStagingDirectory)
+
+- task: AzureFunctionApp@1
+  displayName: Azure Function App deploy
+  inputs:
+    azureSubscription: $(azureSubscription)
+    appType: functionAppLinux
+    appName: $(appName)
+    package: $(Build.ArtifactStagingDirectory)
