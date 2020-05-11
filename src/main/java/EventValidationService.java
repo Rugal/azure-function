@@ -38,7 +38,7 @@ public class EventValidationService {
   }
 
   /**
-   * Get message from EventHub and ingest it to ServiceBus.
+   * Get message from EventHub, validate it before ingesting it to ServiceBus.
    *
    * @param input            EventHub data
    * @param properties       user property
