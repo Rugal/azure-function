@@ -1,0 +1,9 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=???",
+    "EVENT_HUB_CONNECTION_STRING": "Endpoint=sb://???",
+    "FUNCTIONS_WORKER_RUNTIME": "java",
+    "SERVICE_BUS_CONNECTION_STRING": "Endpoint=sb://???"
+  }
+}
